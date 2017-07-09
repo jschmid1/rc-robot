@@ -1,0 +1,60 @@
+{% block body %}
+        <head>
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                <script type=text/javascript>
+                        $(function() {
+                          $('a#left').bind('click', function() {
+                                $.getJSON('/left', {
+                                  control: $('input[name="control"]').val(),
+                                }, function(data) {
+                                  $("#result").text(data.result);
+                                });
+                                return false;
+                          });
+                        });
+                        $(function() {
+                          $('a#right').bind('click', function() {
+                                $.getJSON('/right', {
+                                  control: $('input[name="control"]').val(),
+                                }, function(data) {
+                                  $("#result").text(data.result);
+                                });
+                                return false;
+                          });
+                        });
+                        $(function() {
+                          $('a#forward').bind('click', function() {
+                                $.getJSON('/forward', {
+                                  control: $('input[name="control"]').val(),
+                                }, function(data) {
+                                  $("#result").text(data.result);
+                                });
+                                return false;
+                          });
+                        });
+                        $(function() {
+                          $('a#backward').bind('click', function() {
+                                $.getJSON('/backward', {
+                                  control: $('input[name="control"]').val(),
+                                }, function(data) {
+                                  $("#result").text(data.result);
+                                });
+                                return false;
+                          });
+                        });
+                </script>
+        </head>
+  
+        <body>
+                <div class='container'>
+                <h3>Robot</h3>
+                        <form>
+                                <a href=# id=left><button class='btn btn-default'>left</button></a>
+                                <a href=# id=right><button class='btn btn-default'>right</button></a>
+                                <a href=# id=forward><button class='btn btn-default'>forward</button></a>
+                                <a href=# id=backward><button class='btn btn-default'>backward</button></a>
+                        </form>
+                <p id=result></p>
+                </div>
+        </body>
+{% endblock %}
